@@ -9,7 +9,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "deepbits",
+            "prefix": "mykart",
             "style": "camelCase"
           }
         ],
@@ -17,7 +17,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "deepbits",
+            "prefix": "mykart",
             "style": "kebab-case"
           }
         ]
