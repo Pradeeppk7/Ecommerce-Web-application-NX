@@ -6,9 +6,17 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { DasboardComponent } from './pages/dasboard/dasboard.component';
+import { ShellComponent } from './shared/shell/shell.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent, DasboardComponent],
+  declarations: [
+    AppComponent,
+    NxWelcomeComponent,
+    DasboardComponent,
+    ShellComponent,
+    SidebarComponent,
+  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
