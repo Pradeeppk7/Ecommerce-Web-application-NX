@@ -6,7 +6,7 @@
     }
     &-main{
         width: calc(100% - 175px);
-        margin:175px;
+        margin-left:175px;
     }
     &-sidebar{
         position: fixed;
@@ -52,5 +52,8 @@
                 }
             }
         }
+    }
+    &-page{
+        padding: 15px;
     }
 }
