@@ -17,8 +17,9 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { TableModule } from 'primeng/table';
 import { CategoriesService } from '@deepbits/products';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
+import { InputTextModule } from 'primeng/inputtext';
 
-const UX_MODULE = [CardModule, ToolbarModule, ButtonModule, TableModule];
+const UX_MODULE = [CardModule, ToolbarModule, ButtonModule,InputTextModule, TableModule];
 
 @NgModule({
   declarations: [

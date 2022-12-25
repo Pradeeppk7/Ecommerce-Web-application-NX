@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'deepbits-categories-form',
+  selector: 'admin-categories-form',
   templateUrl: './categories-form.component.html',
   styles: [],
 })
