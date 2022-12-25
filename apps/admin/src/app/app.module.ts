@@ -23,8 +23,9 @@ import { CategoriesFormComponent } from './categories/categories-form/categories
 import { InputTextModule } from 'primeng/inputtext';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import {ColorPickerModule} from 'primeng/colorpicker';
 
-const UX_MODULE = [CardModule, ToolbarModule, ButtonModule,InputTextModule, TableModule,ToastModule,ConfirmDialogModule];
+const UX_MODULE = [CardModule, ToolbarModule, ButtonModule,InputTextModule, TableModule,ToastModule,   ColorPickerModule,ConfirmDialogModule];
 
 @NgModule({
   declarations: [
