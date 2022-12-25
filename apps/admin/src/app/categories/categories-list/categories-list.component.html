@@ -14,19 +14,23 @@
         <div class="p-grid"><p-table [value]="categories" styleClass="p-datatable-gridlines" [tableStyle]="{'min-width': '50rem'}">
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Icon</th>
-                    <th>Color</th>
+                    
+                    <th pSortableColumn="name"><p-sortIcon field="name"></p-sortIcon>Name</th>
+                    <th pSortableColumn="icon"><p-sortIcon field="icon"></p-sortIcon>Icon</th>
+                    <th pSortableColumn="color"><p-sortIcon field="color"></p-sortIcon>Color</th>
                     <th></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-category>
                 <tr>
-                    <td>{{category.id}}</td>
+                    
                     <td>{{category.name}}</td>
-                    <td>{{category.icon}}</td>
-                    <td>{{category.color}}</td>
+                    <td><i style="font-size: 2rem;" class="pi" [ngClass]="'pi-'+category.icon"></i></td>
+                    <td><i
+                        class="pi pi-circle-on"
+                        style="font-size: 2rem"
+                        [ngStyle]="{ color: category.color }"
+                       ></i></td>
                     <td>
                         <p-button (click)="deleteCategory(category.id)" styleClass="p-button-danger  mr-2"  icon="pi pi-trash">
                         </p-button>

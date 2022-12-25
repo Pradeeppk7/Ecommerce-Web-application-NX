@@ -13,7 +13,7 @@ import { timer } from 'rxjs';
 })
 export class CategoriesFormComponent implements OnInit {
   form!: FormGroup;
-  isSubmitted: boolean = false;
+  isSubmitted= false;
   editmode = false;
   currentCategoryId: string | undefined;
 
@@ -54,29 +54,29 @@ export class CategoriesFormComponent implements OnInit {
 
   private _addCategory(category: Category) {
     this.categoriesService.createCategory(category).subscribe({
-      next: () =>
+      next: (category:Category) =>
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
-          detail: 'Category is created',
+          detail: `Category ${category.name} is created`,
         }),
       error: () =>
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
-          detail: 'Category could not be created',
+          detail: `Category is not created`,
         }),
       complete: () =>
-        setTimeout(() => this.router.navigate(['/categories']), 2000),
+        setTimeout(() => this.router.navigate(['/categories']), 1500),
     });
   }
   private _updateCategory(category: Category) {
     this.categoriesService.updateCategory(category).subscribe({
-      next: () =>
+      next: (category: Category) =>
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
-          detail: 'Category is created',
+          detail: `Category ${category.name} is updated`,
         }),
       error: () =>
         this.messageService.add({
