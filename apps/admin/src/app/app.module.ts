@@ -13,7 +13,7 @@ import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 //UI
-import {ToastModule} from 'primeng/toast';
+import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -23,9 +23,20 @@ import { CategoriesFormComponent } from './categories/categories-form/categories
 import { InputTextModule } from 'primeng/inputtext';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import {ColorPickerModule} from 'primeng/colorpicker';
+import { ColorPickerModule } from 'primeng/colorpicker';
+import { ProductListComponent } from './pages/products/product-list/product-list.component';
+import { ProductFormComponent } from './pages/products/product-form/product-form.component';
 
-const UX_MODULE = [CardModule, ToolbarModule, ButtonModule,InputTextModule, TableModule,ToastModule,   ColorPickerModule,ConfirmDialogModule];
+const UX_MODULE = [
+  CardModule,
+  ToolbarModule,
+  ButtonModule,
+  InputTextModule,
+  TableModule,
+  ToastModule,
+  ColorPickerModule,
+  ConfirmDialogModule,
+];
 
 @NgModule({
   declarations: [
@@ -36,6 +47,8 @@ const UX_MODULE = [CardModule, ToolbarModule, ButtonModule,InputTextModule, Tabl
     SidebarComponent,
     CategoriesListComponent,
     CategoriesFormComponent,
+    ProductListComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +59,7 @@ const UX_MODULE = [CardModule, ToolbarModule, ButtonModule,InputTextModule, Tabl
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     ...UX_MODULE,
   ],
-  providers: [CategoriesService,MessageService,ConfirmationService],
+  providers: [CategoriesService, MessageService, ConfirmationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
