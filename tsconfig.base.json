@@ -18,7 +18,8 @@
       "@deepbits/orders": ["libs/orders/src/index.ts"],
       "@deepbits/products": ["libs/products/src/index.ts"],
       "@deepbits/ui": ["libs/ui/src/index.ts"],
-      "@deepbits/users": ["libs/users/src/index.ts"]
+      "@deepbits/users": ["libs/users/src/index.ts"],
+      "@env/*":["environments/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
