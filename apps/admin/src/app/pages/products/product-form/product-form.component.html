@@ -1,1 +1,118 @@
-<p>product-form works!</p>
+<p-toast></p-toast>
+<div class="admin-page">
+  <p-card
+    [header]="editmode ? 'Edit Product' : 'Add Product'"
+    subheader="You can add or edit Product here"
+  >
+    <div class="p-grid mb-4">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+            <p-button
+              styleClass="p-button-primary mr-2"
+              [label]="editmode ? 'Update' : 'Create'"
+              icon="pi pi-plus"
+              (click)="onSubmit()"
+            >
+            </p-button>
+            <p-button
+              styleClass="p-button-secondary"
+              label="Cancel"
+              icon="pi pi-arrow-circle-left"
+              [routerLink]="editmode ?'../..':'..'"
+            >
+            </p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12">
+        <form [formGroup]="form">
+          <div class="fluid formgrid grid">
+            <div class="field col">
+              <label for="name">Name</label>
+              <input
+                formControlName="name"
+                id="name"
+                type="text"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                class="p-error"
+                *ngIf="productForm['name'].invalid && isSubmitted"
+                >Name is invalid</small
+              >
+            </div>
+            <div class="field col">
+              <label for="brand">Brand</label>
+              <input
+                formControlName="brand"
+                id="brand"
+                type="text"
+                class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              />
+              <small
+                class="p-error"
+                *ngIf="productForm['brand'].invalid && isSubmitted"
+                >Brand is invalid</small
+              >
+            </div>
+            <div class="field col">
+                <label for="price"> Price</label><br>
+                <p-inputNumber  formControlName="price" mode="decimal" inputId="price" [useGrouping]="false">
+                </p-inputNumber>
+                <small
+                class="p-error"
+                *ngIf="productForm['price'].invalid && isSubmitted"
+                >Price is invalid</small
+              >
+            </div>
+          </div>
+          <div class="fluid formgrid grid">
+              <div class="field col">
+                <label for="countInStock"> Stock</label><br>
+                <p-inputNumber  formControlName="countInStock" mode="decimal" inputId="countInStock" [useGrouping]="false">
+                </p-inputNumber>
+                <small
+                class="p-error"
+                *ngIf="productForm['countInStock'].invalid && isSubmitted"
+                >Stock is invalid</small
+              >
+              </div>
+              <div class="field col">
+                <label for="category"> Category</label><br>
+                <p-inputNumber  formControlName="category" mode="decimal" inputId="category" [useGrouping]="false">
+                </p-inputNumber>
+                <small
+                class="p-error"
+                *ngIf="productForm['category'].invalid && isSubmitted"
+                >Category is invalid</small
+              >
+              </div>
+              <div class="field col">
+                <label for="isFeatured">Is Featured</label>
+                <p-inputSwitch formControlName="isFeatured"></p-inputSwitch>
+              </div>
+              
+             
+          </div>
+          <div class="fluid formgrid grid">
+              <div class="field col">
+                <label for="description"> Description</label><br>
+                <textarea pInputTextarea rows="7" cols="30" formControlName="description"></textarea>
+                <small
+                class="p-error"
+                *ngIf="productForm['description'].invalid && isSubmitted"
+                >Description is invalid</small
+              >
+              </div>
+              
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>
+

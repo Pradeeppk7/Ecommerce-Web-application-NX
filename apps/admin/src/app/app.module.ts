@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CategoriesService, ProductsService } from '@deepbits/products';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,20 +13,22 @@ import { DasboardComponent } from './pages/dasboard/dasboard.component';
 import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
+import { ProductListComponent } from './pages/products/product-list/product-list.component';
+import { ProductFormComponent } from './pages/products/product-form/product-form.component';
+import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 //UI
+import {InputNumberModule} from 'primeng/inputnumber';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TableModule } from 'primeng/table';
-import { CategoriesService } from '@deepbits/products';
-import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ColorPickerModule } from 'primeng/colorpicker';
-import { ProductListComponent } from './pages/products/product-list/product-list.component';
-import { ProductFormComponent } from './pages/products/product-form/product-form.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 const UX_MODULE = [
   CardModule,
@@ -36,6 +39,9 @@ const UX_MODULE = [
   ToastModule,
   ColorPickerModule,
   ConfirmDialogModule,
+  InputNumberModule,
+  InputTextareaModule,
+  InputSwitchModule
 ];
 
 @NgModule({
@@ -59,7 +65,7 @@ const UX_MODULE = [
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     ...UX_MODULE,
   ],
-  providers: [CategoriesService, MessageService, ConfirmationService],
+  providers: [CategoriesService, MessageService, ConfirmationService, ProductsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

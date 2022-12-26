@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { ProductsService,Product } from '@deepbits/products';
 
 @Component({
   selector: 'admin-product-list',
@@ -6,11 +7,11 @@ import { Component,OnInit } from '@angular/core';
   styles: [],
 })
 export class ProductListComponent implements OnInit {
-  products = [];
+  products:Product[] =[];
   
-  constructor() {}
+  constructor(private productsService:ProductsService) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this._getProducts();
   }
   deleteProduct(productID: string) {
     productID = "w";
@@ -19,6 +20,11 @@ export class ProductListComponent implements OnInit {
     productID = "w";
   }
 
+  private _getProducts() {
+    this.productsService.getProducts().subscribe((product) => {
+      this.products = product;
+    });
+  }
   
 
 }
