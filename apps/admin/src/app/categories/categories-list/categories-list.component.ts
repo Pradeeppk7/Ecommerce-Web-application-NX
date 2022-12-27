@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CategoriesService, Category } from '@deepbits/products';
-import { ConfirmationService, ConfirmEventType,MessageService } from 'primeng/api';
+import {
+  ConfirmationService,
+  ConfirmEventType,
+  MessageService,
+} from 'primeng/api';
 
 @Component({
   selector: 'admin-categories-list',
@@ -14,12 +18,13 @@ export class CategoriesListComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private categoriesService: CategoriesService,
     private messageService: MessageService,
-    private router:Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this._getCategories();
   }
+  
   deleteCategory(categoryId: string) {
     this.confirmationService.confirm({
       message: 'Do you want to delete this category?',
@@ -35,7 +40,7 @@ export class CategoriesListComponent implements OnInit {
               detail: 'Category is Deleted!',
             });
           },
-    
+
           (error) => {
             this.messageService.add({
               severity: 'error',
@@ -44,13 +49,11 @@ export class CategoriesListComponent implements OnInit {
             });
           }
         );
-      }
-     
+      },
     });
-    
   }
   updateCategory(categoryid: string) {
-    this.router.navigateByUrl(`categories/form/${categoryid}`)
+    this.router.navigateByUrl(`categories/form/${categoryid}`);
   }
 
   private _getCategories() {
