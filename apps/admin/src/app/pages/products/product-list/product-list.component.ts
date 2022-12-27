@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductsService,Product } from '@deepbits/products';
 
 @Component({
@@ -7,9 +8,11 @@ import { ProductsService,Product } from '@deepbits/products';
   styles: [],
 })
 export class ProductListComponent implements OnInit {
-  products:Product[] =[];
+  products: Product[] = [];
+
   
-  constructor(private productsService:ProductsService) {}
+  constructor(private productsService: ProductsService,
+    private router:Router) { }
   ngOnInit(): void {
     this._getProducts();
   }
@@ -17,14 +20,12 @@ export class ProductListComponent implements OnInit {
     productID = "w";
   }
   updateProduct(productID: string) {
-    productID = "w";
-  }
+      this.router.navigateByUrl(`products/form/${productID}`)
+    }
 
   private _getProducts() {
     this.productsService.getProducts().subscribe((product) => {
       this.products = product;
     });
   }
-  
-
 }

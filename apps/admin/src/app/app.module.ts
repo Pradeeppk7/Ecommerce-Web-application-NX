@@ -28,7 +28,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import {InputSwitchModule} from 'primeng/inputswitch';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { DropdownModule } from 'primeng/dropdown';
+import {EditorModule} from 'primeng/editor';
 
 const UX_MODULE = [
   CardModule,
@@ -37,11 +39,13 @@ const UX_MODULE = [
   InputTextModule,
   TableModule,
   ToastModule,
+  EditorModule,
   ColorPickerModule,
   ConfirmDialogModule,
   InputNumberModule,
   InputTextareaModule,
-  InputSwitchModule
+  InputSwitchModule,
+  DropdownModule
 ];
 
 @NgModule({

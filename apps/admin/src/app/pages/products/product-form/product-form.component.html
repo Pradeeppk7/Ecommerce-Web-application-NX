@@ -20,7 +20,7 @@
               styleClass="p-button-secondary"
               label="Cancel"
               icon="pi pi-arrow-circle-left"
-              [routerLink]="editmode ?'../..':'..'"
+              [routerLink]="editmode ? '../..' : '..'"
             >
             </p-button>
           </div>
@@ -60,10 +60,15 @@
               >
             </div>
             <div class="field col">
-                <label for="price"> Price</label><br>
-                <p-inputNumber  formControlName="price" mode="decimal" inputId="price" [useGrouping]="false">
-                </p-inputNumber>
-                <small
+              <label for="price"> Price</label><br />
+              <p-inputNumber
+                formControlName="price"
+                mode="decimal"
+                inputId="price"
+                [useGrouping]="false"
+              >
+              </p-inputNumber>
+              <small
                 class="p-error"
                 *ngIf="productForm['price'].invalid && isSubmitted"
                 >Price is invalid</small
@@ -71,48 +76,86 @@
             </div>
           </div>
           <div class="fluid formgrid grid">
-              <div class="field col">
-                <label for="countInStock"> Stock</label><br>
-                <p-inputNumber  formControlName="countInStock" mode="decimal" inputId="countInStock" [useGrouping]="false">
-                </p-inputNumber>
-                <small
+            <div class="field col">
+              <label for="countInStock"> Stock</label><br />
+              <p-inputNumber
+                mode="decimal"
+                formControlName="countInStock"
+                inputId="countInStock"
+                [useGrouping]="false"
+              >
+              </p-inputNumber>
+              <small
                 class="p-error"
                 *ngIf="productForm['countInStock'].invalid && isSubmitted"
                 >Stock is invalid</small
               >
-              </div>
-              <div class="field col">
-                <label for="category"> Category</label><br>
-                <p-inputNumber  formControlName="category" mode="decimal" inputId="category" [useGrouping]="false">
-                </p-inputNumber>
-                <small
+            </div>
+            <div class="field col">
+              <label for="category"> Category</label><br />
+              <p-dropdown
+                [options]="categories"
+                formControlName="category"
+                [filter]="true"
+                filterBy="name"
+                [showClear]="true"
+                placeholder="Select a Category"
+                optionLabel="name"
+                optionValue="id"
+              ></p-dropdown>
+              <small
                 class="p-error"
                 *ngIf="productForm['category'].invalid && isSubmitted"
                 >Category is invalid</small
               >
-              </div>
-              <div class="field col">
-                <label for="isFeatured">Is Featured</label>
-                <p-inputSwitch formControlName="isFeatured"></p-inputSwitch>
-              </div>
-              
-             
+            </div>
+            <div class="field col">
+              <label for="isFeatured">Is Featured</label><br />
+              <p-inputSwitch formControlName="isFeatured"></p-inputSwitch>
+            </div>
           </div>
           <div class="fluid formgrid grid">
-              <div class="field col">
-                <label for="description"> Description</label><br>
-                <textarea pInputTextarea rows="7" cols="30" formControlName="description"></textarea>
-                <small
+            <div class="field col-12">
+              <label for="description"> Description</label><br />
+              <textarea
+                pInputTextarea
+                rows="7"
+                cols="30"
+                formControlName="description"
+              ></textarea>
+              <small
                 class="p-error"
                 *ngIf="productForm['description'].invalid && isSubmitted"
                 >Description is invalid</small
               >
+            </div>
+            <div class="field col-12">
+              <label for="richDescription"> Product Detail</label>
+              <p-editor
+                formControlName="richDescription"
+                [style]="{ height: '320px' }"
+              ></p-editor>
+            </div>
+            <div class="field col-12">
+              <label for="name">Main Image</label><br />
+              <input
+                type="file"
+                class="p-inputtext"
+                accept="image/*"
+                (change)="onImageUpload($event)"
+              />
+              <small
+                class="p-error"
+                *ngIf="productForm['image'].invalid && isSubmitted"
+                >Image is invalid</small
+              >
+              <div class="col-2 mt-2 pl-0">
+                <img style="width: 100%" [src]="imageDisplay" alt="" />
               </div>
-              
+            </div>
           </div>
         </form>
       </div>
     </div>
   </p-card>
 </div>
-
