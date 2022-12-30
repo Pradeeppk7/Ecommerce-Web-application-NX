@@ -18,6 +18,7 @@ import { ProductFormComponent } from './pages/products/product-form/product-form
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 //UI
 import { InputNumberModule } from 'primeng/inputnumber';
+import {InputMaskModule} from 'primeng/inputmask';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -48,6 +49,7 @@ const UX_MODULE = [
   InputTextareaModule,
   InputSwitchModule,
   DropdownModule,
+  InputMaskModule
 ];
 
 @NgModule({

@@ -20,7 +20,7 @@
               styleClass="p-button-secondary"
               label="Cancel"
               icon="pi pi-arrow-circle-left"
-              [routerLink]="editmode ?'../..':'..'"
+              [routerLink]="editmode ? '../..' : '..'"
             >
             </p-button>
           </div>
@@ -60,8 +60,8 @@
               >
             </div>
             <div class="field col">
-                <label for="color"> Color</label><br>
-                  <p-colorPicker formControlName="color"></p-colorPicker>
+              <label for="color"> Color</label><br />
+              <p-colorPicker formControlName="color"></p-colorPicker>
             </div>
           </div>
         </form>
