@@ -11,7 +11,8 @@
                </p-toolbar> 
             </div>
         </div>
-        <div class="p-grid"><p-table [value]="products" styleClass="p-datatable-gridlines" [tableStyle]="{'min-width': '50rem'}">
+        <div class="p-grid">
+            <p-table [value]="products" [paginator]="true" [rows]="10" styleClass="p-datatable-gridlines" [tableStyle]="{'min-width': '50rem'}">
             <ng-template pTemplate="header">
                 <tr>
                     

@@ -17,7 +17,7 @@ import { ProductListComponent } from './pages/products/product-list/product-list
 import { ProductFormComponent } from './pages/products/product-form/product-form.component';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 //UI
-import {InputNumberModule} from 'primeng/inputnumber';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -30,7 +30,9 @@ import { ColorPickerModule } from 'primeng/colorpicker';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
-import {EditorModule} from 'primeng/editor';
+import { EditorModule } from 'primeng/editor';
+import { UserListComponent } from './pages/users/user-list/user-list.component';
+import { UserFormComponent } from './pages/users/user-form/user-form.component';
 
 const UX_MODULE = [
   CardModule,
@@ -45,7 +47,7 @@ const UX_MODULE = [
   InputNumberModule,
   InputTextareaModule,
   InputSwitchModule,
-  DropdownModule
+  DropdownModule,
 ];
 
 @NgModule({
@@ -59,6 +61,8 @@ const UX_MODULE = [
     CategoriesFormComponent,
     ProductListComponent,
     ProductFormComponent,
+    UserListComponent,
+    UserFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +73,12 @@ const UX_MODULE = [
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     ...UX_MODULE,
   ],
-  providers: [CategoriesService, MessageService, ConfirmationService, ProductsService],
+  providers: [
+    CategoriesService,
+    MessageService,
+    ConfirmationService,
+    ProductsService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
