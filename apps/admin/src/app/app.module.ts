@@ -17,8 +17,9 @@ import { ProductListComponent } from './pages/products/product-list/product-list
 import { ProductFormComponent } from './pages/products/product-form/product-form.component';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 //UI
+import { TagModule } from 'primeng/tag';
 import { InputNumberModule } from 'primeng/inputnumber';
-import {InputMaskModule} from 'primeng/inputmask';
+import { InputMaskModule } from 'primeng/inputmask';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -34,9 +35,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
+import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
+import {FieldsetModule} from 'primeng/fieldset';
 
 const UX_MODULE = [
   CardModule,
+  FieldsetModule,
+  TagModule,
   ToolbarModule,
   ButtonModule,
   InputTextModule,
@@ -49,7 +55,7 @@ const UX_MODULE = [
   InputTextareaModule,
   InputSwitchModule,
   DropdownModule,
-  InputMaskModule
+  InputMaskModule,
 ];
 
 @NgModule({
@@ -65,6 +71,8 @@ const UX_MODULE = [
     ProductFormComponent,
     UserListComponent,
     UserFormComponent,
+    OrdersListComponent,
+    OrdersDetailComponent,
   ],
   imports: [
     BrowserModule,
