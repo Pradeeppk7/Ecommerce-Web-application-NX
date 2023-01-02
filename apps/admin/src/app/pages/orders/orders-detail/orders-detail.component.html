@@ -5,90 +5,85 @@
       <div class="grid">
         <div class="col-4">
           <h5>Order ID</h5>
-          <p>{{order.id}}</p>
+          <p>{{ order.id }}</p>
         </div>
         <div class="col-4">
           <h5>Order Date</h5>
-          <p>{{order.dateOrdered | date:'short'}}</p>
+          <p>{{ order.dateOrdered | date : 'short' }}</p>
         </div>
         <div class="col-4">
           <h5>Order Status</h5>
-          <p-dropdown></p-dropdown>
+          <p-dropdown
+            [options]="orderStatuses"
+            optionLabel="name"
+            [(ngModel)]="selectedStatus"
+            (onChange)="onStatusChange($event)"
+            optionValue="id"></p-dropdown>
         </div>
         <div class="col-4">
           <h5>Order Total Price</h5>
-          <p>{{order.totalPrice |currency }}</p>
+          <p>{{ order.totalPrice | currency }}</p>
         </div>
       </div>
     </p-fieldset>
     <p-fieldset legend="Order Items" styleClass="mb-4" [toggleable]="true">
-        <div class="grid mb-3">
-
-            <div class="col-2">
-                Name
-            </div>
-            <div class="col-2">
-                Brand
-            </div>
-            <div class="col-2">
-                Category
-            </div>
-            <div class="col-2">
-                Price
-            </div>
-            <div class="col-2">
-                Quantity
-            </div>
-            <div class="col-2">
-                SubTotal
-            </div>
+      <div class="grid mb-3">
+        <div class="col-2">Name</div>
+        <div class="col-2">Brand</div>
+        <div class="col-2">Category</div>
+        <div class="col-2">Price</div>
+        <div class="col-2">Quantity</div>
+        <div class="col-2">SubTotal</div>
+      </div>
+      <div class="grid" *ngFor="let orderItems of order.orderItems">
+        <div class="col-2">
+          {{ orderItems.product.name }}
         </div>
-        <div class="grid" *ngFor="let orderItems of order.orderItems">
-
-            <div class="col-2">
-                {{orderItems.product.name}}
-            </div>
-            <div class="col-2">
-                {{orderItems.product.brand}}
-            </div>
-            <div class="col-2">
-                {{orderItems.product.category.name}}
-            </div>
-            <div class="col-2">
-                {{orderItems.product.price}}
-            </div>
-            <div class="col-2">
-                {{orderItems.quantity}}
-            </div>
-            <div class="col-2">
-                {{orderItems.product.price}} x {{orderItems.quantity}}
-            </div>
+        <div class="col-2">
+          {{ orderItems.product.brand }}
         </div>
-        <div class="grid">
-            <div class="col-2 col-offset-8">Total Price</div>
-            <div class="col-2">{{order.totalPrice}}</div>
+        <div class="col-2">
+          {{ orderItems.product.category.name }}
         </div>
-    
+        <div class="col-2">
+          {{ orderItems.product.price }}
+        </div>
+        <div class="col-2">
+          {{ orderItems.quantity }}
+        </div>
+        <div class="col-2">
+          {{ orderItems.product.price }} x {{ orderItems.quantity }}
+        </div>
+      </div>
+      <div class="grid">
+        <div class="col-2 col-offset-8">Total Price</div>
+        <div class="col-2">{{ order.totalPrice }}</div>
+      </div>
     </p-fieldset>
     <p-fieldset legend="Order Address" styleClass="mb-4" [toggleable]="true">
-     <div class="grid">
+      <div class="grid">
         <div class="col-4">
-            <h5>Order Address</h5>
-            <p>{{order.shippingAddress1}}<br>{{order.shippingAddress2}}<br>{{order.zip}}<br>{{order.city}}<br>{{order.country}}</p>
+          <h5>Order Address</h5>
+          <p>
+            {{ order.shippingAddress1 }}<br />{{ order.shippingAddress2
+            }}<br />{{ order.zip }}<br />{{ order.city }}<br />{{
+              order.country
+            }}
+          </p>
         </div>
         <div class="col-4">
-            <h5>Customer Info</h5>
-            <p>
-                {{order.user}}
-            </p>
+          <h5>Customer Info</h5>
+          <p>
+            {{ order.user }}
+          </p>
         </div>
         <div class="col-4">
-            <h5>Contact Info</h5>
-            <p>
-                {{order.phone}}
-            </p>
+          <h5>Contact Info</h5>
+          <p>
+            {{ order.phone }}
+          </p>
         </div>
-     </div>
+      </div>
     </p-fieldset>
   </p-card>
 </div>

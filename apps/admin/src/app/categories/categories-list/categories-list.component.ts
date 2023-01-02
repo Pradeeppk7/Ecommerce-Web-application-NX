@@ -16,8 +16,8 @@ export class CategoriesListComponent implements OnInit {
   categories: Category[] = [];
   constructor(
     private confirmationService: ConfirmationService,
-    private categoriesService: CategoriesService,
     private messageService: MessageService,
+    private categoriesService: CategoriesService,
     private router: Router
   ) {}
 
@@ -26,6 +26,7 @@ export class CategoriesListComponent implements OnInit {
   }
   
   deleteCategory(categoryId: string) {
+    console.log("hello");
     this.confirmationService.confirm({
       message: 'Do you want to delete this category?',
       header: 'Delete Category',
