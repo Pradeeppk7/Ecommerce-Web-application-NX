@@ -1,0 +1,18 @@
+.login-register{
+    background-color: aqua;
+    height: 100vh;
+    &-panel{
+        width: 650px;
+        height: 525px;
+        background-color: var(--surface-a);
+        position: absolute;
+        left: calc(50% - 325px);
+        top:calc(50% - 257.5px);
+        .full-btn{
+            width:90%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}

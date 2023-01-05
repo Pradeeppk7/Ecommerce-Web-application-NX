@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersModule } from '@deepbits/users';
 
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
@@ -81,6 +82,7 @@ const UX_MODULE = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    UsersModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     ...UX_MODULE,
   ],
