@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { AuthGuard } from '@deepbits/users';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 import { DasboardComponent } from './pages/dasboard/dasboard.component';
@@ -14,6 +15,7 @@ export const appRoutes: Route[] = [
   {
     path: '',
     component: ShellComponent,
+    canActivate:[AuthGuard],
     children: [
       {
         path: 'dashboard',
