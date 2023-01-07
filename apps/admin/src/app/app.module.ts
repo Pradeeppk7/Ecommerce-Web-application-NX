@@ -42,11 +42,11 @@ import { FieldsetModule } from 'primeng/fieldset';
 
 
 const UX_MODULE = [
+  ButtonModule,
   CardModule,
   FieldsetModule,
   TagModule,
   ToolbarModule,
-  ButtonModule,
   InputTextModule,
   TableModule,
   ToastModule,

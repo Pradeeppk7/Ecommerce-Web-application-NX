@@ -17,7 +17,7 @@
                         formControlName="email" placeholder="Username">         
                     </div>
                     <small *ngIf="loginForm['email'].invalid && isSubmitted" class="p-error">
-                        email is required
+                        email is invalid
                     </small>
                 </div>
                 <div class="col-12">
@@ -26,12 +26,13 @@
                         <input type="password"  formControlName="password"   pInputText placeholder="Password">         
                     </div>
                     <small *ngIf="loginForm['password'].invalid && isSubmitted" class="p-error">
-                        password is required
+                        password is invalid
                     </small>
                 </div>
                 <div class="col-12">
-                    <p-button label="login" (onclick)="onSubmit()" styleClass="full-btn"></p-button>
+                    <p-button label="login" (click)="onSubmit()" styleClass="full-btn"></p-button>
                 </div>
+                <div class="col-12"><small *ngIf="isSubmitted && authError" class="p-error">{{authMessage}}</small></div>
             </div>
         </form>
         </div>
