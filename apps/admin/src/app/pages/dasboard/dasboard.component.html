@@ -1,5 +1,5 @@
 <div class="admin-page">
-  <p-card header="Dashboard"  subheader="Latest Updates" styleClass="head">
+  <p-card header="Dashboard" subheader="Latest Updates" styleClass="head">
     <div class="grid">
       <div class="col-3">
         <p-card styleClass="d-orders">
@@ -9,7 +9,7 @@
               <span class="name">Orders</span>
             </div>
             <div>
-              <span class="number">{{order}}</span>
+              <span class="number">{{ orders }}</span>
             </div>
           </div>
         </p-card>
@@ -22,7 +22,7 @@
               <span class="name">Products</span>
             </div>
             <div>
-              <span class="number">{{product}}</span>
+              <span class="number">{{ products }}</span>
             </div>
           </div>
         </p-card>
@@ -35,7 +35,7 @@
               <span class="name">users</span>
             </div>
             <div>
-              <span class="number">{{user}}</span>
+              <span class="number">{{ users }}</span>
             </div>
           </div>
         </p-card>
@@ -48,7 +48,8 @@
               <span class="name">Total Sales</span>
             </div>
             <div>
-              <span class="number">{{totalsales}} &#8377;
+              <span class="number"
+                ><b>{{ totalsales }} &#8377;</b>
               </span>
             </div>
           </div>
