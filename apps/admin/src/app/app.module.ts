@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CategoriesService, ProductsService } from '@deepbits/products';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UsersModule } from '@deepbits/users';
+import { JwtInterceptor, UsersModule } from '@deepbits/users';
 
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
@@ -91,6 +91,7 @@ const UX_MODULE = [
     MessageService,
     ConfirmationService,
     ProductsService,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}
   ],
   bootstrap: [AppComponent],
 })
