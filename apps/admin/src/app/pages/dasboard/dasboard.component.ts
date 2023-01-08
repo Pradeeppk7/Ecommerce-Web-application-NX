@@ -11,6 +11,7 @@ import { combineLatest, combineLatestWith } from 'rxjs/operators';
 export class DasboardComponent implements OnInit {
   statistics = [];
   order = 0;
+ 
   product = 0;
   user = 0;
   totalsales = 0;
@@ -27,12 +28,17 @@ export class DasboardComponent implements OnInit {
     }),
     this.productService.getProductsCount().subscribe((products) => {
       this.product = products;
-    },
-     // this.userService.getUsersCount(),
-     // this.ordersService.getTotalSales()
+    }),
+    this.userService.getUsersCount().subscribe((user) => {
+      this.user = user;
+    }),
+      this.ordersService.getTotalSales().subscribe((totalsales) => {
+        this.totalsales = totalsales;
+    })
     //]).subscribe((values) => {
     //  this.statistics = values;
     //});
-  )}
+  }
+ 
 }
 
