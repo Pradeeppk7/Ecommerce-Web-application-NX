@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Order, OrdersService } from '@deepbits/orders';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Subject, takeUntil } from 'rxjs';
 import { ORDER_STATUS } from '../order.constants';
 
 @Component({
@@ -9,8 +10,9 @@ import { ORDER_STATUS } from '../order.constants';
   templateUrl: './orders-list.component.html',
   styles: [],
 })
-export class OrdersListComponent implements OnInit {
+export class OrdersListComponent implements OnInit, OnDestroy {
   orders: Order[] = [];
+  endsubs$: Subject<any> = new Subject();
   orderStatus = ORDER_STATUS;
   constructor(
     private ordersService: OrdersService,
@@ -22,8 +24,12 @@ export class OrdersListComponent implements OnInit {
   ngOnInit(): void {
     this._getOrders();
   }
+  ngOnDestroy(): void {
+    
+    this.endsubs$.complete();
+  }
   _getOrders() {
-    this.ordersService.getOrders().subscribe((orders) => {
+    this.ordersService.getOrders().pipe(takeUntil(this.endsubs$)).subscribe((orders) => {
       this.orders = orders;
     });
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsService, Product } from '@deepbits/products';
 import {
@@ -6,15 +6,16 @@ import {
   MessageService,
   ConfirmEventType,
 } from 'primeng/api';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'admin-product-list',
   templateUrl: './product-list.component.html',
   styles: [],
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit,OnDestroy {
   products: Product[] = [];
-
+  endsubs$: Subject<any> = new Subject();
   constructor(
     private productsService: ProductsService,
     private confirmationService: ConfirmationService,
@@ -24,6 +25,10 @@ export class ProductListComponent implements OnInit {
   
   ngOnInit(): void {
     this._getProducts();
+  }
+  ngOnDestroy(): void {
+    
+    this.endsubs$.complete();
   }
 
   deleteProduct(productId: string) {
@@ -59,7 +64,7 @@ export class ProductListComponent implements OnInit {
   }
 
   private _getProducts() {
-    this.productsService.getProducts().subscribe((product) => {
+    this.productsService.getProducts().pipe(takeUntil(this.endsubs$)).subscribe((product) => {
       this.products = product;
     });
   }

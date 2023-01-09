@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService, User } from '@deepbits/users';
 import {
@@ -6,14 +6,16 @@ import {
   ConfirmEventType,
   MessageService,
 } from 'primeng/api';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'admin-user-list',
   templateUrl: './user-list.component.html',
   styles: [],
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
   users: User[] = [];
+  endsubs$: Subject<any> = new Subject();
   constructor(
     private confirmationService: ConfirmationService,
     private usersService: UsersService,
@@ -24,7 +26,10 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this._getUsers();
   }
-  
+  ngOnDestroy(): void {
+    
+    this.endsubs$.complete();
+  }
   deleteUser(userId: string) {
     this.confirmationService.confirm({
       message: 'Do you want to delete this user?',
@@ -57,7 +62,7 @@ export class UserListComponent implements OnInit {
   }
 
   private _getUsers() {
-    this.usersService.getUsers().subscribe(( users) => {
+    this.usersService.getUsers().pipe(takeUntil(this.endsubs$)).subscribe(( users) => {
       this.users = users;
     });
   }

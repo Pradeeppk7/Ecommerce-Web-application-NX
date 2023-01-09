@@ -53,4 +53,9 @@ export const appRoutes: Route[] = [
       },
     ],
   },
+  {
+    path: '**',
+    redirectTo: '/dashboard',
+    pathMatch:'full'
+  }
 ];
