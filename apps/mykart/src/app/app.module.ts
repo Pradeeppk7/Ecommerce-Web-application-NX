@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { UiModule } from '@deepbits/ui';
@@ -17,14 +16,13 @@ import { CategoriesService, ProductsModule, ProductsService } from '@deepbits/pr
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'products', component: ProductListComponent },
+  
 ];
 @NgModule({
   declarations: [
     AppComponent,
     NxWelcomeComponent,
     HomePageComponent,
-    ProductListComponent,
     HeaderComponent,
     FooterComponent,
     NavComponent,

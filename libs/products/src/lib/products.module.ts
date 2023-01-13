@@ -4,29 +4,38 @@ import { ProductsSearchComponent } from './components/products-search/products-s
 import { OrdersModule } from '@deepbits/orders';
 import { CategoriesBannerComponent } from './components/categories-banner/categories-banner.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { FeaturedProductComponent } from './components/featured-product/featured-product.component';
 import { ButtonModule } from 'primeng/button';
+import { ProductsListComponent } from './pages/products-list/products-list.component';
+
+const routes: Routes = [
+  {
+    path: 'products', component:ProductsListComponent
+  },
+]
 @NgModule({
   imports: [
     CommonModule,
     OrdersModule,
     HttpClientModule,
     ButtonModule,
-    RouterModule,
+    RouterModule.forChild(routes),
   ],
   declarations: [
     ProductsSearchComponent,
     CategoriesBannerComponent,
     ProductItemComponent,
     FeaturedProductComponent,
+    ProductsListComponent,
   ],
   exports: [
     ProductsSearchComponent,
     CategoriesBannerComponent,
     ProductItemComponent,
     FeaturedProductComponent,
+    ProductsListComponent,
   ],
 })
 export class ProductsModule {}
