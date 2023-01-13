@@ -7,9 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { FeaturedProductComponent } from './components/featured-product/featured-product.component';
-import { ButtonModule } from 'primeng/button';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
-
+//ui
+import { ButtonModule } from 'primeng/button';
+import {CheckboxModule} from 'primeng/checkbox';
+import { FormsModule } from '@angular/forms';
 const routes: Routes = [
   {
     path: 'products', component:ProductsListComponent
@@ -21,6 +23,8 @@ const routes: Routes = [
     OrdersModule,
     HttpClientModule,
     ButtonModule,
+    CheckboxModule,
+    FormsModule,
     RouterModule.forChild(routes),
   ],
   declarations: [
