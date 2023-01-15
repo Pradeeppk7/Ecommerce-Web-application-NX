@@ -9,17 +9,27 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { FeaturedProductComponent } from './components/featured-product/featured-product.component';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
 //ui
+import {InputNumberModule} from 'primeng/inputnumber';
+
 import { ButtonModule } from 'primeng/button';
-import {CheckboxModule} from 'primeng/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
+import {RatingModule} from 'primeng/rating';
 const routes: Routes = [
   {
-    path: 'products', component:ProductsListComponent
+    path: 'products',
+    component: ProductsListComponent,
   },
   {
-    path: 'category/:categoryid', component:ProductsListComponent
+    path: 'category/:categoryid',
+    component: ProductsListComponent,
   },
-]
+  {
+    path: 'products/:productid',
+    component: ProductPageComponent,
+  },
+];
 @NgModule({
   imports: [
     CommonModule,
@@ -28,6 +38,8 @@ const routes: Routes = [
     ButtonModule,
     CheckboxModule,
     FormsModule,
+    RatingModule,
+    InputNumberModule,
     RouterModule.forChild(routes),
   ],
   declarations: [
@@ -36,6 +48,7 @@ const routes: Routes = [
     ProductItemComponent,
     FeaturedProductComponent,
     ProductsListComponent,
+    ProductPageComponent,
   ],
   exports: [
     ProductsSearchComponent,
@@ -43,6 +56,7 @@ const routes: Routes = [
     ProductItemComponent,
     FeaturedProductComponent,
     ProductsListComponent,
+    ProductPageComponent,
   ],
 })
 export class ProductsModule {}
