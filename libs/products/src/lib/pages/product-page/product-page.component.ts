@@ -16,6 +16,7 @@ export class ProductPageComponent implements OnInit, OnDestroy{
   quantity!: string;
   beforeprice: number | undefined;
   richDesc: string | undefined;
+  img: string[]| undefined;;
   endSubs$: Subject<any> = new Subject();
   constructor(private prodservice: ProductsService, private route:ActivatedRoute) { }
   ngOnDestroy(): void {
@@ -38,6 +39,7 @@ export class ProductPageComponent implements OnInit, OnDestroy{
       this.product = product;
       this.beforeprice = Number(product.price);
       this.richDesc = product.richDescription;
+      this.img = product.images;
       if (this.beforeprice<250) {
         this.beforeprice += 100;
       }

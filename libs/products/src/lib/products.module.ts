@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { FeaturedProductComponent } from './components/featured-product/featured-product.component';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
+import { UiModule } from '@deepbits/ui';
 //ui
 import {InputNumberModule} from 'primeng/inputnumber';
 
@@ -41,6 +42,7 @@ const routes: Routes = [
     RatingModule,
     InputNumberModule,
     RouterModule.forChild(routes),
+    UiModule
   ],
   declarations: [
     ProductsSearchComponent,
