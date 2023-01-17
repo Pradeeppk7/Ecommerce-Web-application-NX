@@ -13,6 +13,7 @@ import { UiModule } from '@deepbits/ui';
 import { AccordionModule } from 'primeng/accordion';
 import { NavComponent } from './shared/nav/nav.component';
 import { CategoriesService, ProductsModule, ProductsService } from '@deepbits/products';
+import { OrdersModule } from '@deepbits/orders';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     UiModule,
     AccordionModule,
+    OrdersModule
   ],
   providers: [CategoriesService,ProductsService,],
   bootstrap: [AppComponent],
