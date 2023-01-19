@@ -4,5 +4,5 @@ export class Cart{
 
 export class CartItem{
     productId?: string;
-    quantity?: number| undefined;
+    quantity?: number| any;
 }

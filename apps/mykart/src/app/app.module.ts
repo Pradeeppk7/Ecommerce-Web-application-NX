@@ -12,13 +12,17 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { UiModule } from '@deepbits/ui';
 import { AccordionModule } from 'primeng/accordion';
 import { NavComponent } from './shared/nav/nav.component';
-import { CategoriesService, ProductsModule, ProductsService } from '@deepbits/products';
+import {
+  CategoriesService,
+  ProductsModule,
+  ProductsService,
+} from '@deepbits/products';
 import { OrdersModule } from '@deepbits/orders';
+import { MessagesComponent } from './shared/messages/messages.component';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
-const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  
-];
+const routes: Routes = [{ path: '', component: HomePageComponent }];
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +31,7 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     NavComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +41,11 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     UiModule,
     AccordionModule,
-    OrdersModule
+    OrdersModule,
+    ToastModule
   ],
-  providers: [CategoriesService,ProductsService,],
+  providers: [CategoriesService, ProductsService,MessageService],
   bootstrap: [AppComponent],
+  exports: [MessagesComponent],
 })
 export class AppModule {}
