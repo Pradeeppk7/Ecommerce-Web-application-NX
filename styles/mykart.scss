@@ -1,9 +1,8 @@
 //base
 @import '~normalize.css/normalize.css';
-@import'./base/colors.scss';
-@import'./base/fonts.scss';
-@import'./base/mixins.scss';
-
+@import './base/colors.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
 
 //External lib
 //@import '../node_modules/bootstrap/scss/bootstrap.scss';bootstrap
@@ -12,22 +11,23 @@
 @import '~primeng/resources/primeng.min.css';
 @import '~primeflex/primeflex.css';
 //pages
-@import'./apps/shop/pages/home-page.scss';
-@import'./apps/shop/pages/products-list-page.scss';
+@import './apps/shop/pages/home-page.scss';
+@import './apps/shop/pages/products-list-page.scss';
 
 //shared
 @import './apps/shop/shared/header.scss';
 @import './apps/shop/shared/footer.scss';
 @import './apps/shop/shared/nav.scss';
 //libs
-@import'./libs/ui/ui.scss';
-@import'./libs/products/products.scss';
-
-@import'~animate.css/animate.css';
-@import'./base/configuration.scss';
-.container{
-    width: 1200px;
-    padding:15px;
-    margin:0 auto;
-    background-color:var(--surface-200);
+@import './libs/ui/ui.scss';
+@import './libs/products/products.scss';
+@import './libs/orders/order.scss';
+@import '~animate.css/animate.css';
+@import './base/configuration.scss';
+.container {
+  width: 1200px;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: var(--surface-200);
 }
+
