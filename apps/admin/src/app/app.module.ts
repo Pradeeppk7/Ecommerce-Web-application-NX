@@ -18,6 +18,7 @@ import { ProductListComponent } from './pages/products/product-list/product-list
 import { ProductFormComponent } from './pages/products/product-form/product-form.component';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 //UI
+
 import { TagModule } from 'primeng/tag';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputMaskModule } from 'primeng/inputmask';
@@ -75,6 +76,7 @@ const UX_MODULE = [
     UserFormComponent,
     OrdersListComponent,
     OrdersDetailComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -91,7 +93,7 @@ const UX_MODULE = [
     MessageService,
     ConfirmationService,
     ProductsService,
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

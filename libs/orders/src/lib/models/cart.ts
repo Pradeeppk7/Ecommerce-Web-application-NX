@@ -4,5 +4,10 @@ export class Cart{
 
 export class CartItem{
     productId?: string;
-    quantity?: number| any;
+    quantity?: number;
+}
+
+export class CartItemDetailed{
+    product?: any;
+    quantity?: number;
 }

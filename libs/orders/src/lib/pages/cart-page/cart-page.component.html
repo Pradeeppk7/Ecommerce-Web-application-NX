@@ -10,25 +10,25 @@
         </p-button>
       </div>
       <div>
-        <h4>My Cart: {{ 2 }} Items</h4>
+        <h4>My Cart: {{ cartItemsDetailed.length }} Items</h4>
       </div>
       <div class="cart-shipping"></div>
-      <div class="cart-item">
+      <div class="cart-item mb-2" *ngFor="let cartItem of cartItemsDetailed">
         <div class="grid p-fluid">
           <div class="col-2 cart-item-image">
             <img
-              src="https://images.unsplash.com/photo-1574539602047-548bf9557352?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2V4eSUyMGdpcmx8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60"
-              alt=""
+              [src]="cartItem.product.image"
+              [attr.alt]="cartItem.product.name"
               class=""
             />
           </div>
           <div class="col-7">
-            <div class="cart-item-name">Product Name</div>
-            <div class="cart-item-price">200</div>
+            <div class="cart-item-name">{{cartItem.product.name}}</div>
+            <div class="cart-item-price">{{cartItem.product.price }}</div>
             <div class="cart-item-remove">
               <p-button
                 icon="pi pi-trash"
-                (onClick)="deleteCartItem()"
+                (onClick)="deleteCartItem(cartItem)"
               ></p-button>
             </div>
           </div>
@@ -37,7 +37,7 @@
               <p-inputNumber
                 mode="decimal"
                 [showButtons]="true"
-                inputId="quantity"
+                [inputId]="cartItem.product.id"
                 [min]="1"
                 [max]="100"
               >
@@ -45,7 +45,7 @@
             </div>
             <div class="cart-item-subtotal">
                 Subtotal: <span class="cart-item-subtotal-value">
-                    {{200}}
+                  {{cartItem.product.price * cartItem.quantity}}
                 </span>
             </div>
           </div>
