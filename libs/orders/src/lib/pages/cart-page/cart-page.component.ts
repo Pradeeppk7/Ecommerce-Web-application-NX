@@ -10,13 +10,16 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class CartPageComponent implements OnInit {
   cartCount = 0;
+  isCheckout = false;
   endSubs$: Subject<any> = new Subject();
   cartItemsDetailed: CartItemDetailed[] = [];
   constructor(
     private router: Router,
     private ordersService: OrdersService,
     private cartService: CartService
-  ) {}
+  ) {
+    
+  }
   ngOnInit(): void {
     this._getCartDetails();
   }

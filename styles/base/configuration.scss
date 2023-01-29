@@ -9,3 +9,6 @@ a{
 ul{
     @include reset-list;
 }
+.p-button{
+    background-color:$primary-color-dark;
+}

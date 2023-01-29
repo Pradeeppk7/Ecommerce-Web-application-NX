@@ -9,14 +9,21 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { ButtonModule } from 'primeng/button';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { DropdownModule } from 'primeng/dropdown';
 
 const routes: Routes = [
   {
     path: 'cart',
     component: CartPageComponent,
   },
+  {
+    path: 'checkout',
+    component:CheckoutPageComponent
+  }
 ];
 @NgModule({
   imports: [
@@ -27,6 +34,10 @@ const routes: Routes = [
     ButtonModule,
     RouterModule.forChild(routes),
     FormsModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    InputMaskModule,
+    DropdownModule,
   ],
   declarations: [
     CartIconComponent,
@@ -34,7 +45,7 @@ const routes: Routes = [
     OrderSummaryComponent,
     CheckoutPageComponent,
   ],
-  exports: [CartIconComponent, CartPageComponent, OrderSummaryComponent],
+  exports: [CartIconComponent, CartPageComponent, OrderSummaryComponent,CheckoutPageComponent],
 })
 export class OrdersModule {
   constructor(cartService: CartService) {

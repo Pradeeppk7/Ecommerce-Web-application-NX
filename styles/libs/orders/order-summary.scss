@@ -1,6 +1,7 @@
 .order-summary {
     background-color: var(--surface-0);
     padding: 15px;
+    margin-top: 0%;
     border: 1px solid var(--surface-200);
   
     .summary-price {
@@ -24,6 +25,9 @@
     .checkout-button {
       button {
         width: 100%;
+        
+        background-color: $primary-color-dark;
+        border: 0;
       }
     }
   }
