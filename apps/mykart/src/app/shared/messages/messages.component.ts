@@ -15,7 +15,7 @@ export class MessagesComponent implements OnInit {
       this.messageService.add({
         severity: 'success',
         summary: 'Success',
-        detail: 'Added to the Cart'
+        detail: 'Cart Updated'
       });
     });
   }
