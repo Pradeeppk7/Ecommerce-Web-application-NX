@@ -8,3 +8,4 @@ export * from './lib/models/cart';
 
 export * from './lib/order-summary/order-summary.component';
 export * from './lib/pages/checkout-page/checkout-page.component';
+export * from './lib/order.constants';

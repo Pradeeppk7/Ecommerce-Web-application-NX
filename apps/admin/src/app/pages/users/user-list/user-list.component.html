@@ -27,7 +27,8 @@
                     
                     <td>{{user.name}}</td>
                     <td>{{user.email}}</td>
-                    <td>{{user.isAdmin}}</td>
+                    <td class="bgadmin" *ngIf="user.isAdmin"><i class="pi pi-wrench"></i></td>
+                    <td *ngIf="!user.isAdmin"><i class="pi pi-user"></i></td>
                     <td>{{user.country}}</td>
                     <td>
                         <p-button (click)="deleteUser(user.id)" styleClass="p-button-danger  mr-2"  icon="pi pi-trash">

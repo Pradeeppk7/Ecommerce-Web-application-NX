@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Order, OrdersService } from '@deepbits/orders';
+import { Order, OrdersService,ORDER_STATUS} from '@deepbits/orders';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { ORDER_STATUS } from '../order.constants';
 @Component({
   selector: 'admin-orders-detail',
   templateUrl: './orders-detail.component.html',

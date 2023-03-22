@@ -17,8 +17,12 @@ import { CategoriesListComponent } from './categories/categories-list/categories
 import { ProductListComponent } from './pages/products/product-list/product-list.component';
 import { ProductFormComponent } from './pages/products/product-form/product-form.component';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
-//UI
+import { UserListComponent } from './pages/users/user-list/user-list.component';
+import { UserFormComponent } from './pages/users/user-form/user-form.component';
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
+import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
 
+//UI
 import { TagModule } from 'primeng/tag';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputMaskModule } from 'primeng/inputmask';
@@ -35,10 +39,6 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
-import { UserListComponent } from './pages/users/user-list/user-list.component';
-import { UserFormComponent } from './pages/users/user-form/user-form.component';
-import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
-import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
 import { FieldsetModule } from 'primeng/fieldset';
 
 
