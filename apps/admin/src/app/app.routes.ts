@@ -9,6 +9,7 @@ import { ProductFormComponent } from './pages/products/product-form/product-form
 import { ProductListComponent } from './pages/products/product-list/product-list.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
+import { Parent1Component } from './parent1/parent1.component';
 import { ShellComponent } from './shared/shell/shell.component';
 
 export const appRoutes: Route[] = [
@@ -52,6 +53,8 @@ export const appRoutes: Route[] = [
         path:'orders/:id',component: OrdersDetailComponent,
       },
     ],
+  },{
+    path:'test',component:Parent1Component,
   },
   {
     path: '**',

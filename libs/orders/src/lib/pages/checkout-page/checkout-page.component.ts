@@ -7,6 +7,7 @@ import { Cart } from '../../models/cart';
 import { Order } from '../../models/order';
 import { CartService } from '../../services/cart.service';
 import { OrdersService,ORDER_STATUS } from '@deepbits/orders';
+import { Subject, take, takeUntil } from 'rxjs';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 //import { ORDER_STATUS } from '../../order.constants';
 @Component({
@@ -26,11 +27,32 @@ export class CheckoutPageComponent implements OnInit {
   orderItems: OrderItem[] = [];
   userId = '63564c27e9baaa56082f2289';
   countries = [];
+  unsubscribe$ :Subject<any>=new Subject();
 
   ngOnInit(): void {
     this._initCheckoutForm();
+    this._autoFillUserData();
     this._getCartItems();
     this._getCountries();
+  }
+
+  ngOnDestroy() {
+    //this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
+  private _autoFillUserData() {
+    this.usersService.observeCurrentUser().pipe(takeUntil(this.unsubscribe$)).subscribe(user => {
+      if (user) {
+        this.checkoutForm.name.setValue(user.name);
+        this.checkoutForm.email.setValue(user.email);
+        this.checkoutForm.city.setValue(user.city);
+        this.checkoutForm.phone.setValue(user.phone);
+        this.checkoutForm.street.setValue(user.street);
+        this.checkoutForm.zip.setValue(user.zip);
+        this.checkoutForm.apartment.setValue(user.apartment);
+      }
+    });
   }
 
   private _initCheckoutForm() {

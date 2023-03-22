@@ -1,0 +1,21 @@
+.child{
+    background-color:rgb(220, 145, 47);
+    border-radius:2vh ;
+    height: 50%;
+    width: 50%;
+    position: relative;
+    top:25%;
+    left:25%;
+    .top{
+        padding: 10%;
+        display: flex;
+        flex-direction: column;
+        direction: colowm;
+        justify-content: center;
+        align-content: center;
+    }
+    #lbutton{
+        margin: 8% 10% 2% 8%;
+        
+    }
+}

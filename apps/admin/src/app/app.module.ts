@@ -40,8 +40,9 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
 import { FieldsetModule } from 'primeng/fieldset';
-
-
+import { Parent1Component } from './parent1/parent1.component';
+import { Child1Component } from './child1/child1.component';
+//import { FormBuilder } from '@angular/forms';
 const UX_MODULE = [
   ButtonModule,
   CardModule,
@@ -76,11 +77,13 @@ const UX_MODULE = [
     UserFormComponent,
     OrdersListComponent,
     OrdersDetailComponent,
-    
+    Parent1Component,
+    Child1Component,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    //FormBuilder,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

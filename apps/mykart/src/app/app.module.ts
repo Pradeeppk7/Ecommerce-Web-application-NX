@@ -21,6 +21,9 @@ import { OrdersModule } from '@deepbits/orders';
 import { MessagesComponent } from './shared/messages/messages.component';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { UsersModule } from '@deepbits/users';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 const routes: Routes = [{ path: '', component: HomePageComponent }];
 @NgModule({
@@ -38,11 +41,14 @@ const routes: Routes = [{ path: '', component: HomePageComponent }];
     BrowserAnimationsModule,
     ProductsModule,
     HttpClientModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     RouterModule.forRoot(routes),
     UiModule,
     AccordionModule,
     OrdersModule,
-    ToastModule
+    ToastModule,
+    UsersModule
   ],
   providers: [CategoriesService, ProductsService,MessageService],
   bootstrap: [AppComponent],
