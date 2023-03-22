@@ -6,6 +6,7 @@ const TOKEN = 'jwtToken';
 })
 export class LocalstorageService {
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() { }
   setToken(data: any) {
     localStorage.setItem(TOKEN, data);
