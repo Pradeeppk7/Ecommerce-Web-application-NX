@@ -44,6 +44,7 @@ export class CheckoutPageComponent implements OnInit {
   private _autoFillUserData() {
     this.usersService.observeCurrentUser().pipe(takeUntil(this.unsubscribe$)).subscribe(user => {
       if (user) {
+        this.userId = user.id;
         this.checkoutForm.name.setValue(user.name);
         this.checkoutForm.email.setValue(user.email);
         this.checkoutForm.city.setValue(user.city);

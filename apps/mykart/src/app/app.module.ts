@@ -19,13 +19,39 @@ import {
 } from '@deepbits/products';
 import { OrdersModule } from '@deepbits/orders';
 import { MessagesComponent } from './shared/messages/messages.component';
-import { MessageService } from 'primeng/api';
-import { ToastModule } from 'primeng/toast';
+
 import { UsersModule } from '@deepbits/users';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-const routes: Routes = [{ path: '', component: HomePageComponent }];
+import { TagModule } from 'primeng/tag';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputMaskModule } from 'primeng/inputmask';
+import { ToastModule } from 'primeng/toast';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { ToolbarModule } from 'primeng/toolbar';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ColorPickerModule } from 'primeng/colorpicker';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { DropdownModule } from 'primeng/dropdown';
+import { EditorModule } from 'primeng/editor';
+import { FieldsetModule } from 'primeng/fieldset';
+import { MainComponent } from './pages/main/main.component';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { LoginComponent } from 'libs/users/src/lib/pages/login/login.component';
+
+const routes: Routes = [{ path: '', component: HomePageComponent }, {
+  path:'login',component:LoginComponent,
+},{
+  path: '**',
+  redirectTo: '/',
+  pathMatch:'full'
+}];
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +61,7 @@ const routes: Routes = [{ path: '', component: HomePageComponent }];
     FooterComponent,
     NavComponent,
     MessagesComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,8 +75,24 @@ const routes: Routes = [{ path: '', component: HomePageComponent }];
     AccordionModule,
     OrdersModule,
     ToastModule,
-    UsersModule
-  ],
+    UsersModule,
+    ButtonModule,
+    CardModule,
+    FieldsetModule,
+    TagModule,
+    ToolbarModule,
+    InputTextModule,
+    TableModule,
+    ToastModule,
+    EditorModule,
+    ColorPickerModule,
+    ConfirmDialogModule,
+    InputNumberModule,
+    InputTextareaModule,
+    InputSwitchModule,
+    DropdownModule,
+    InputMaskModule,
+    ],
   providers: [CategoriesService, ProductsService,MessageService],
   bootstrap: [AppComponent],
   exports: [MessagesComponent],

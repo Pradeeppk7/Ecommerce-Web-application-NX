@@ -19,7 +19,7 @@ export const appRoutes: Route[] = [
     canActivate:[AuthGuard],
     children: [
       {
-        path: 'dashboard',
+        path: '',
         component: DasboardComponent
       }, {
         path:'categories',component: CategoriesListComponent,
@@ -58,7 +58,7 @@ export const appRoutes: Route[] = [
   },
   {
     path: '**',
-    redirectTo: '/dashboard',
+    redirectTo: '/',
     pathMatch:'full'
   }
 ];

@@ -42,6 +42,8 @@ import { EditorModule } from 'primeng/editor';
 import { FieldsetModule } from 'primeng/fieldset';
 import { Parent1Component } from './parent1/parent1.component';
 import { Child1Component } from './child1/child1.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 //import { FormBuilder } from '@angular/forms';
 const UX_MODULE = [
   ButtonModule,
@@ -86,6 +88,8 @@ const UX_MODULE = [
     //FormBuilder,
     HttpClientModule,
     FormsModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     ReactiveFormsModule,
     UsersModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),

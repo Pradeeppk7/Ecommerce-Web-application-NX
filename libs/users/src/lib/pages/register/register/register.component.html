@@ -1,0 +1,98 @@
+<div class="login-register">
+  <div class="login-register-panel">
+    <div class="grid">
+      <div class="col-6">
+        <img src="assets/images/login.jpeg" />
+      </div>
+      <div class="col-6 p-5">
+        <h3>Register</h3>
+        <h2>Welcome to MyKart</h2>
+        <div class="p-grid">
+          <div class="p-col-12">
+            <form  [formGroup]="former">
+              <div class="fluid formgrid grid">
+                <div class="field col-4">
+                  <label for="name">Name</label><br />
+                  <input
+                    formControlName="name"
+                    id="name"
+                    type="text"
+                    pInputText
+                  />
+                  <small
+                    *ngIf="userForm['name'].invalid && isSubmitted"
+                    class="p-error"
+                    >Name is required</small
+                  >
+                </div>
+                <div class="field col-4">
+                  <label for="email">Email</label><br />
+                  <input
+                    formControlName="email"
+                    id="email"
+                    type="text"
+                    pInputText
+                  />
+                  <small
+                    *ngIf="userForm['email'].invalid && isSubmitted"
+                    class="p-error"
+                    ><span *ngIf="userForm['email'].errors"
+                      >email is required</span
+                    >
+                  </small>
+                </div>
+                <div class="field col-4">
+                  <label for="password">Password</label><br />
+                  <input
+                    formControlName="password"
+                    id="password"
+                    type="password"
+                    pInputText
+                  />
+                  <small
+                    *ngIf="userForm['password'].invalid && isSubmitted"
+                    class="p-error"
+                    >Password is required</small
+                  >
+                </div>
+                <div class="field col-4">
+                    <label for="password1">Password</label><br />
+                    <input
+                      
+                      formControlName="password1"
+                      id="password1"
+                      type="password"
+                      pInputText
+                    />
+                    <small
+                      *ngIf="userForm['password'].invalid && isSubmitted"
+                      class="p-error"
+                      >Password is required</small
+                    >
+                  </div>
+                <div class="field col-4">
+                  <label for="color">Phone</label><br />
+                  <p-inputMask
+                  mask="99999-99999"
+                  formControlName="phone"
+                  placeholder="99999-99999"
+                ></p-inputMask>
+                  <small
+                    *ngIf="userForm['phone'].invalid && isSubmitted"
+                    class="p-error"
+                    >phone is required</small
+                  >
+                </div >
+                <div class="field col-4">
+                    
+<p-button label="Register"  (click)="onSubmit()"></p-button>
+                </div>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
