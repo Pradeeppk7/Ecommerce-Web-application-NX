@@ -25,7 +25,7 @@ export class CheckoutPageComponent implements OnInit {
   checkoutFormGroup: FormGroup;
   isSubmitted = false;
   orderItems: OrderItem[] = [];
-  userId = '63564c27e9baaa56082f2289';
+  userId :any;
   countries = [];
   unsubscribe$ :Subject<any>=new Subject();
 
