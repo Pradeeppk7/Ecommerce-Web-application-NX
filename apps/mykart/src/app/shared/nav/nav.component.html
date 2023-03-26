@@ -1,13 +1,15 @@
+<div style="display: inline-flex;">
 
-<ul class="nav">
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/products">Product</a></li>
-    <li><a routerLink="/contact">Contact</a></li>
-    <li *ngIf="islog"><a  (click)="logoutUser()"  class="logout">
-        Logout</a>
+    <ul class="nav">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/products">Product</a></li>
+        <li *ngIf="islog"><a  (click)="logoutUser()"  class="logout">
+            Logout</a>
     </li>
     <li *ngIf="!islog"><a  routerLink="/login"  class="logout">
         Login</a>
     </li>
-    <li  *ngIf="islog">Welcome {{name}}</li>
+    
 </ul>
+<div  *ngIf="islog">Welcome {{name}}</div>
+</div>
