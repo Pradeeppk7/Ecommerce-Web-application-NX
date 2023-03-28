@@ -62,19 +62,7 @@
                 >City is required</small
               >
             </div>
-            <div class="field col-4">
-              <label for="country">Country</label><br />
-              <p-dropdown
-                formControlName="country"
-                optionLabel="name"
-                optionValue="id"
-                filterBy="name"
-                placeholder="Select a Country"
-              ></p-dropdown>
-              <small *ngIf="checkoutForm.country.invalid && isSubmitted" class="p-error"
-                >Country is required</small
-              >
-            </div>
+            
           </div>
         </form>
       </div>
